@@ -3,5 +3,5 @@
 git fetch
 git merge origin master
 
-npm i --only=prod
+npm i
 npm run build
