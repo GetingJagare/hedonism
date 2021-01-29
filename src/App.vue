@@ -24,7 +24,7 @@
                 <Section :full-height="true" name="cases">
 
                 </Section>
-                <Section :full-height="true" name="contacts">
+                <Section :full-height="true" name="contacts" :valign-center="true">
                     <ContactForm />
                 </Section>
                 <Section :full-height="true" name="lab">

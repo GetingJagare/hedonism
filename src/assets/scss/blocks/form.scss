@@ -28,7 +28,8 @@
     transition: all 0.4s ease-in-out;
   }
 
-  &__input:focus + &__label {
+  &__input:focus + &__label,
+  &__input_valid + &__label {
     font-size: 0.7em;
     top: 6px;
     transform: none;

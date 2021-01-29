@@ -1,6 +1,9 @@
 <template>
     <section class="section"
-             :class="{'section_full-height': fullHeight}"
+             :class="{
+             'section_full-height': fullHeight,
+             'section_v-align_center': valignCenter,
+             }"
              :style="styleObj"
              :id="name"
     >
@@ -25,12 +28,16 @@
                 type: Boolean,
                 default: true
             },
-            name: String
+            name: String,
+            valignCenter: {
+                type: Boolean,
+                default: false
+            }
         },
         computed: {
             styleObj() {
                 return {
-                    'background-color': this.backColor
+                    'background-color': this.backColor,
                 }
             }
         }
