@@ -57,7 +57,10 @@
                 const el = document.getElementById(elId);
 
                 if (el) {
-                    el.scrollIntoView({behavior: 'smooth'});
+                    window.scrollTo({
+                        behavior: 'smooth',
+                        top: el.getBoundingClientRect().top + window.scrollY
+                    })
                 }
             },
 

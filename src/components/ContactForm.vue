@@ -75,7 +75,6 @@
 
             attachFile(event) {
                 this.file = event.target.files;
-                console.log(this.file);
             }
         },
 

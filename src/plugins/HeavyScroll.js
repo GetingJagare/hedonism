@@ -24,6 +24,9 @@ export default {
                         isDesktop: true,
                         scrollHeight: 0,
                         mouseWheel: false,
+                        touch: false,
+                        touchY: 0,
+                        prevScrollY: 0,
                         ...options
                     }
                 }
@@ -44,7 +47,7 @@ export default {
 
             methods: {
                 _hsLaunch() {
-                    this._hsAttachEvents();
+                    this.$data._hs.isDesktop ? this._hsAttachEvents() : this._hsAttachTouchEvents();
                 },
 
                 _hsCalcScrollHeight() {
@@ -63,9 +66,30 @@ export default {
                             return;
                         }
 
-                        this.$data._hs.scrollTop = window.scrollY;
                         this.$data._hs.tmpScrollTop = window.scrollY;
                     });
+                },
+
+                _hsAttachTouchEvents() {
+                    document.addEventListener('touchstart', (event) => {
+                        this.$data._hs.touch = true;
+                        this.$data._hs.touchY = event.changedTouches[0].pageY;
+                        this.$data._hs.prevScrollY = this.$data._hs.scrollTop;
+                    });
+
+                    document.addEventListener('touchmove', (event) => {
+                        if (!this.$data._hs.touch) {
+                            return;
+                        }
+
+                        const scrollDiff = event.changedTouches[0].pageY - this.$data._hs.touchY;
+                        this.$data._hs.tmpScrollTop = this.$data._hs.prevScrollY + scrollDiff;
+                    });
+
+                    document.addEventListener('touchend', (event) => {
+                        this.$data._hs.touch = false;
+                        this._hsScrollDecay();
+                    })
                 },
 
                 _hsHandleWheelEvent(event) {
@@ -86,18 +110,16 @@ export default {
 
                     this.$data._hs.scrollTop += this.$data._hs.scrollDir * diff / this.$data._hs.slowParam;
 
-                    if (time > 0) {
-                        setTimeout(() => {
-                            this._hsScrollDecay(time - timeStep, diff - step, ++step);
-                        }, timeStep);
-                    }
+                    setTimeout(() => {
+                        this._hsScrollDecay(time - timeStep, diff - step, ++step);
+                    }, timeStep);
                 }
 
             },
 
             watch: {
                 '$data._hs.tmpScrollTop'(newValue, oldValue) {
-                    if (this.$data._hs.tmpScrollTop === oldValue) {
+                    if (this.$data._hs.tmpScrollTop === oldValue || !this.$data._hs.mouseWheel) {
                         return;
                     }
 
