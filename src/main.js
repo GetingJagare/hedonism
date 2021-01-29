@@ -17,7 +17,7 @@ new Vue({
         scrollingNavbarHeight: 60,
         scrollThreshold: 70,
         mouseEvent: null,
-        backColors: ['3914AF', '00BA3F', '009898', 'D50061', '7009A9', 'FFEC00']
+        backColors: ['3914AF', '00BA3F', '009898', '7009A9'],
     },
     computed: {
         event() {

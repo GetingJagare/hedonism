@@ -1,0 +1,57 @@
+@import "../variables";
+
+.form {
+  &__group {
+    position: relative;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    min-height: 60px;
+    background-color: rgba($black, 0.1);
+    padding: 16px 20px 0;
+    font-size: 0.8em;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.4s ease-in-out;
+  }
+
+  &__input:focus + &__label {
+    font-size: 0.7em;
+    top: 6px;
+    transform: none;
+  }
+
+  &__submit {
+    &-btn {
+      border: none;
+      min-height: 60px;
+      padding: 0 30px;
+      font-size: 0.7em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      background-color: rgba($black, 0.1);
+
+      &:hover {
+        background-color: rgba($black, 0.3);
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}
