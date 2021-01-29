@@ -1,0 +1,6 @@
+.link {
+  &:link, &:visited, &:active, &:focus {
+    text-decoration: none;
+    mix-blend-mode: difference;
+  }
+}

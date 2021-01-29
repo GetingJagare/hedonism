@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;900&display=swap');
+
+@import "../variables";
+
+@import "./body";
+@import "./container";
+
+.app {
+  position: relative;
+
+  & * {
+    color: $white;
+    mix-blend-mode: revert;
+  }
+
+  &__page {
+
+  }
+}

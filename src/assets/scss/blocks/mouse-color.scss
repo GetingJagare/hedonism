@@ -1,0 +1,9 @@
+@import "../variables";
+
+.mouse-color {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: -1;
+}
