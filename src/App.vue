@@ -6,13 +6,7 @@
          @touchmove="setMouseEvent($event)"
     >
         <MouseColor :colors="$root.backColors"/>
-        <!--<Scrollbar indicator-color="#17f060"
-                   line-color="rgba(0, 0, 0, 0.1)"
-                   slider-color="rgba(0, 0, 0, 0.8)"
-                   :slow-param="5"
-                   :width="20"
-                   :decay="10"
-        />-->
+
         <div class="app__page">
             <header>
                 <Navbar @scrollIntoView="scrollToElement"/>
@@ -40,18 +34,22 @@
     import Section from "./ui/Section";
     import MouseColor from "./components/MouseColor";
     import MouseImages from "./components/MouseImages";
-    import Scrollbar from "./components/Scrollbar";
     import ContactForm from "./components/ContactForm";
 
     export default {
         name: 'App',
         components: {
             ContactForm,
-            Scrollbar,
             MouseImages,
             MouseColor,
             Navbar,
             Section
+        },
+
+        mounted() {
+            document.body.classList.add('body_ov_hidden');
+
+            this._hsLaunch();
         },
 
         methods: {

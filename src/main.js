@@ -1,9 +1,14 @@
 import Vue from 'vue';
 import App from './App.vue';
 import VueTheMask from 'vue-the-mask';
+import HeavyScroll from './plugins/HeavyScroll';
 
 Vue.config.productionTip = false;
 Vue.use(VueTheMask);
+Vue.use(HeavyScroll, {
+    slowParam: 7,
+    decay: 15
+});
 
 import directives from "./directives";
 
