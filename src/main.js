@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import App from './App.vue';
+import VueTheMask from 'vue-the-mask';
 
 Vue.config.productionTip = false;
+Vue.use(VueTheMask);
 
 import directives from "./directives";
 

@@ -18,7 +18,7 @@
                 <Navbar @scrollIntoView="scrollToElement"/>
             </header>
             <main>
-                <Section :full-height="true" name="top">
+                <Section :full-height="true" name="top" :valign-center="true">
                     <MouseImages/>
                 </Section>
                 <Section :full-height="true" name="cases">

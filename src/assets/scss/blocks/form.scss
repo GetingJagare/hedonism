@@ -4,7 +4,15 @@
   &__group {
     position: relative;
     margin-bottom: 20px;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_align {
+      &_left {
+        justify-content: flex-start;
+      }
+    }
   }
 
   &__input {
@@ -17,6 +25,19 @@
 
     &:focus {
       outline: none;
+    }
+
+    &_file {
+      width: 0;
+      height: 0;
+      opacity: 0;
+      visibility: hidden;
+      padding: 0;
+    }
+
+    &-filename {
+      margin-left: 10px;
+      font-size: 0.7em;
     }
   }
 
@@ -33,6 +54,22 @@
     font-size: 0.7em;
     top: 6px;
     transform: none;
+  }
+
+  &__input_file + &__label {
+    position: static;
+    max-width: 200px;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 30px;
+    display: inline-block;
+    transform: none;
+    background-color: rgba($black, 0.1);
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($black, 0.3);
+    }
   }
 
   &__submit {

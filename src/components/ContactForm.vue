@@ -9,20 +9,31 @@
                        type="email"
                        id="email"
                        v-model="email"
-                       :class="{'form__input_valid': !!email}"
+                       :class="{'form__input_valid': !!email, 'form__input_error': errors.email}"
                 />
                 <label class="form__label" for="email">E-mail</label>
             </div>
 
             <div class="form__group">
-                <input class="form__input"
-                       required
-                       type="tel"
-                       id="phone"
-                       v-model="phone"
-                       :class="{'form__input_valid': !!phone}"
+                <the-mask class="form__input"
+                              v-model="phone"
+                              mask="+7(###)###-##-##"
+                              id="phone"
+                              required
+                              type="tel"
+                              :class="{'form__input_valid': !!phone}"
                 />
                 <label class="form__label" for="phone">Телефон</label>
+            </div>
+
+            <div class="form__group form__group_align_left">
+                <input class="form__input form__input_file"
+                          @change="attachFile"
+                          id="file"
+                          type="file"
+                />
+                <label class="form__label" for="file">Добавить файл</label>
+                <span v-if="file && file.length" class="form__input-filename">{{ file[0].name }}</span>
             </div>
 
             <div class="form__group">
@@ -44,13 +55,27 @@
             return {
                 email: '',
                 phone: '',
-                emailRegex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+                file: '',
+                emailRegex: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                errors: {
+                    email: false
+                }
             }
         },
 
         methods: {
             sendRequest() {
+                if (!this.emailValid) {
+                    this.errors.email = true;
+                    return;
+                }
 
+                this.errors.email = false;
+            },
+
+            attachFile(event) {
+                this.file = event.target.files;
+                console.log(this.file);
             }
         },
 
