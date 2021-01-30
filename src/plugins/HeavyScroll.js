@@ -166,7 +166,7 @@ export default {
 
             watch: {
                 '$data._hs.tmpScrollTop'(newValue, oldValue) {
-                    if (this.$data._hs.tmpScrollTop === oldValue || !this.$data._hs.mouseWheel) {
+                    if (this.$data._hs.tmpScrollTop === oldValue || (!this.$data._hs.mouseWheel && !this.$data._hs.touch)) {
                         return;
                     }
 
