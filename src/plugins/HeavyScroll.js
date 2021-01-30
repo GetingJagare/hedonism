@@ -138,6 +138,10 @@ export default {
                 _hsHandleWheelEvent(event) {
                     this.$data._hs.tmpScrollTop += event.deltaY / this.$data._hs.slowParam;
                     //this._hsScrollDecay();
+
+                    setTimeout(() => {
+                        this.$data._hs.mouseWheel = false;
+                    }, 10);
                 },
 
                 _hsScrollDecay(time, diff = 30, step = 0) {
@@ -162,6 +166,10 @@ export default {
 
             watch: {
                 '$data._hs.tmpScrollTop'(newValue, oldValue) {
+                    if (this.$data._hs.tmpScrollTop === oldValue || !this.$data._hs.mouseWheel) {
+                        return;
+                    }
+
                     this.$data._hs.scrollTop = newValue < 0 ? 0 :
                         (newValue > this.$data._hs.scrollHeight ? this.$data._hs.scrollHeight : newValue);
 
