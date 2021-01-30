@@ -151,8 +151,6 @@ export default {
                         return;
                     }
 
-                    console.log(this.$data._hs.tmpScrollTop)
-
                     this.$data._hs.tmpScrollTop += this.$data._hs.scrollDir * diff / this.$data._hs.slowParam;
 
                     setTimeout(() => {
