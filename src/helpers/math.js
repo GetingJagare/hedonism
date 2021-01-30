@@ -50,3 +50,7 @@ export function findColorRange(angle, colorsAllocation) {
     }
 
 }
+
+export function interp(a, b, t) {
+    return (1 - t) * a + t * b;
+}

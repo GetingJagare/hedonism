@@ -5,7 +5,7 @@
          @mousemove="setMouseEvent($event)"
          @touchmove="setMouseEvent($event)"
     >
-        <MouseColor :colors="$root.backColors"/>
+        <MouseColor :colors="$root.backColors" />
 
         <div class="app__content">
             <header>
@@ -13,13 +13,13 @@
             </header>
             <main>
                 <Section :full-height="true" name="top" :valign-center="true">
-                    <MouseImages/>
+                    <MouseImages v-scrollskew />
                 </Section>
                 <Section :full-height="true" name="cases">
 
                 </Section>
                 <Section :full-height="true" name="contacts" :valign-center="true">
-                    <ContactForm />
+                    <ContactForm/>
                 </Section>
                 <Section :full-height="true" name="lab">
 
