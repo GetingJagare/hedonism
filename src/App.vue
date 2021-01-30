@@ -7,7 +7,7 @@
     >
         <MouseColor :colors="$root.backColors"/>
 
-        <div class="app__page">
+        <div class="app__content">
             <header>
                 <Navbar @scrollIntoView="scrollToElement"/>
             </header>

@@ -6,7 +6,7 @@ import HeavyScroll from './plugins/HeavyScroll';
 Vue.config.productionTip = false;
 Vue.use(VueTheMask);
 Vue.use(HeavyScroll, {
-    slowParam: 7,
+    slowParam: 5,
     decay: 15
 });
 
