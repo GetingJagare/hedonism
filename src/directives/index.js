@@ -23,7 +23,9 @@ export default {
 
                 const deg = (lastScrollY - window.scrollY) / window.innerHeight * 10;
 
-                el.style.transform = `skewY(${deg}deg)`;
+                if (Math.abs(deg) > 1e-3) { // 0.001
+                    el.style.transform = `skewY(${deg}deg)`;
+                }
 
                 raf()(skewEl);
 
