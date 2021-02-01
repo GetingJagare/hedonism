@@ -15,6 +15,7 @@ export default {
     'scrollskew': {
         inserted: (el) => {
 
+            const reqAnimFrame = raf();
             let lastScrollY = 0;
 
             const skewEl = () => {
@@ -27,11 +28,11 @@ export default {
                     el.style.transform = `skewY(${deg}deg)`;
                 }
 
-                raf()(skewEl);
+                reqAnimFrame(skewEl);
 
             };
 
-            raf()(skewEl);
+            reqAnimFrame(skewEl);
         }
     }
 }
