@@ -13,7 +13,7 @@
             </header>
             <main>
                 <Section :full-height="true" name="top" :valign-center="true">
-                    <MouseImages v-scrollskew />
+                    <MouseImages v-scrollskew="{onlyViewPort: true}" />
                 </Section>
                 <Section :full-height="true" name="cases">
 
