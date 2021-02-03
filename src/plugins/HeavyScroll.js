@@ -110,6 +110,11 @@ export default {
                             this.$data._hs.isDesktop = window.innerWidth > 1100;
                         }, 100);
                     });
+
+                    /************ shit ***********/
+                    document.head.innerHTML += '<style>.body-ov-hidden{overflow: hidden !important;}</style>';
+                    document.body.classList.add('body-ov-hidden');
+                    /****************************/
                 },
 
                 _hsCalcScrollHeight() {

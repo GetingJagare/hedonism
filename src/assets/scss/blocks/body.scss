@@ -5,11 +5,3 @@ body {
   font-size: 24px;
   font-weight: 500;
 }
-
-.body {
-  &_ov {
-    &_hidden {
-      overflow: hidden !important;
-    }
-  }
-}

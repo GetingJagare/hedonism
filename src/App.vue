@@ -47,8 +47,6 @@
         },
 
         mounted() {
-            document.body.classList.add('body_ov_hidden');
-
             this._hsLaunch();
         },
 
