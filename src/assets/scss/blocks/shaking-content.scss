@@ -1,0 +1,32 @@
+@keyframes shake {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(8deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-8deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.shaking-content {
+  transform-origin: center;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+  animation-duration: 0.5s;
+
+  &:hover {
+    animation-name: shake;
+  }
+}
