@@ -37,5 +37,17 @@ export default {
 
             reqAnimFrame(skewEl);
         }
+    },
+
+    'hovershake': {
+        bind: (el) => {
+            el.addEventListener('mouseover', () => {
+                el.classList.add('shaking-content');
+            });
+
+            el.addEventListener('mouseout', () => {
+                el.classList.remove('shaking-content');
+            });
+        }
     }
 }

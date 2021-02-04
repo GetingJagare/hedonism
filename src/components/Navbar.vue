@@ -5,40 +5,36 @@
                 <div class="navbar__logo"></div>
                 <ul class="navbar__nav">
                     <li class="navbar__nav-item">
-                        <ShakingContent>
-                            <Link label="Главная"
-                                  class="navbar__nav-link"
-                                  href="#cases"
-                                  @click="$emit('scrollIntoView', $event, 'top')"
-                            />
-                        </ShakingContent>
+                        <Link label="Главная"
+                              class="navbar__nav-link"
+                              href="#cases"
+                              @click="$emit('scrollIntoView', $event, 'top')"
+                              v-hovershake
+                        />
                     </li>
                     <li class="navbar__nav-item">
-                        <ShakingContent>
-                            <Link label="Кейсы"
-                                  class="navbar__nav-link"
-                                  href="#cases"
-                                  @click="$emit('scrollIntoView', $event, 'cases')"
-                            />
-                        </ShakingContent>
+                        <Link label="Кейсы"
+                              class="navbar__nav-link"
+                              href="#cases"
+                              @click="$emit('scrollIntoView', $event, 'cases')"
+                              v-hovershake
+                        />
                     </li>
                     <li class="navbar__nav-item">
-                        <ShakingContent>
-                            <Link label="Контакты"
-                                  class="navbar__nav-link"
-                                  href="#contacts"
-                                  @click="$emit('scrollIntoView', $event, 'contacts')"
-                            />
-                        </ShakingContent>
+                        <Link label="Контакты"
+                              class="navbar__nav-link"
+                              href="#contacts"
+                              @click="$emit('scrollIntoView', $event, 'contacts')"
+                              v-hovershake
+                        />
                     </li>
                     <li class="navbar__nav-item">
-                        <ShakingContent>
-                            <Link label="Лаборатория"
-                                  class="navbar__nav-link"
-                                  href="#lab"
-                                  @click="$emit('scrollIntoView', $event, 'lab')"
-                            />
-                        </ShakingContent>
+                        <Link label="Лаборатория"
+                              class="navbar__nav-link"
+                              href="#lab"
+                              @click="$emit('scrollIntoView', $event, 'lab')"
+                              v-hovershake
+                        />
                     </li>
                 </ul>
             </div>
@@ -48,15 +44,22 @@
 
 <script>
     import Link from "../ui/Link";
-    import ShakingContent from "./ShakingContent";
+
     export default {
         name: "Navbar",
-        components: {ShakingContent, Link},
+        components: {
+            Link
+        },
         computed: {
             styleObject() {
                 return {
                     'height': `${this.$root.scrolled ? this.$root.scrollingNavbarHeight : this.$root.navbarHeight}px`
                 }
+            }
+        },
+        methods: {
+            t() {
+                console.log('hover shake')
             }
         }
     }
